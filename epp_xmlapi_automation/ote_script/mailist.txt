@@ -1,0 +1,2 @@
+masscon1.qa:mchinwal@cra.gov.qa:palayils@cra.gov.qa
+masscon2.qa:mchinwal@cra.gov.qa:palayils@cra.gov.qa

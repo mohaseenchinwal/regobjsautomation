@@ -1,0 +1,26 @@
+<AGENT hostname="viper3">
+ <LADDER>
+  <ACL>
+   <ACCOUNT id="4cf031986c">
+    <USERNAME>emcon</USERNAME>
+    <HOST>*sppcon*</HOST>
+    <PERMISSION>CDOPS</PERMISSION>
+   </ACCOUNT>
+   <ACCOUNT id="b92794bbd7">
+    <USERNAME>cpemcon</USERNAME>
+    <HOST>*</HOST>
+    <PERMISSION>COPS</PERMISSION>
+   </ACCOUNT>
+   <ACCOUNT id="8ff0478641">
+    <USERNAME>dbemcon</USERNAME>
+    <HOST>*</HOST>
+    <PERMISSION>COPS</PERMISSION>
+   </ACCOUNT>
+   <ACCOUNT id="22d2647740">
+   <USERNAME>tuxemcon</USERNAME>
+    <HOST>*</HOST>
+    <PERMISSION>COPS</PERMISSION>
+    </ACCOUNT>
+  </ACL>
+ </LADDER>
+</AGENT>

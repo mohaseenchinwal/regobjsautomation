@@ -1,0 +1,10 @@
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0 epp-1.0.xsd"><response><result code="1000"><msg lang="en">Co
+mmand completed successfully</msg></result><resData><domain:infData xmlns:domain="urn:ietf:params:xml:ns:domain-1.0" xsi:schemaLocation="urn:ietf:params:xml:ns:domain-1.0 domain-1.0.xsd"><domain:name>woral.org
+.qa</domain:name><domain:roid>D87E3C9A8636E44FDFEF2BA3AB4E3AA33-QDR</domain:roid><domain:status s="serverUpdateProhibited" lang="en">2018 3rd Q Expiring Domain</domain:status><domain:status s="serverTransferPr
+ohibited" lang="en">2018 3rd Q Expiring Domain</domain:status><domain:status s="serverDeleteProhibited" lang="en">2018 3rd Q Expiring Domain</domain:status><domain:status s="serverRenewProhibited" lang="en">20
+18 3rd Q Expiring Domain</domain:status><domain:registrant>QDR000330</domain:registrant><domain:contact type="admin">QDR000330</domain:contact><domain:contact type="billing">QDR000330</domain:contact><domain:c
+ontact type="tech">QDR000330</domain:contact><domain:ns><domain:hostObj>ns-1512.awsdns-61.org</domain:hostObj><domain:hostObj>ns-1810.awsdns-34.co.uk</domain:hostObj><domain:hostObj>ns-4.awsdns-00.com</domain:
+hostObj><domain:hostObj>ns-685.awsdns-21.net</domain:hostObj></domain:ns><domain:clID>QDR</domain:clID><domain:crID>Registry</domain:crID><domain:crDate>2015-08-09T04:58:17.0Z</domain:crDate><domain:upID>Regis
+try</domain:upID><domain:upDate>2020-05-13T09:57:39.0Z</domain:upDate><domain:exDate>2018-08-09T04:58:17.0Z</domain:exDate><domain:authInfo><domain:pw>W0rAl#5!9</domain:pw></domain:authInfo></domain:infData></
+resData><extension> <infData xmlns="urn:X-ar:params:xml:ns:kv-1.0"><kvlist name="qa"><item key="eligibilityType">Public Benefit Organization</item><item key="registrantName">Qatar Foundation - Information Tech
+nology</item></kvlist></infData></extension><trID><clTRID>qadr_epp</clTRID><svTRID>61843371</svTRID></trID></response></epp>

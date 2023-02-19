@@ -1,0 +1,89 @@
+use strict;
+use warnings;
+use Data::Dumper;
+
+my $E="/bin/echo";
+my %hash;
+
+my $key;
+my $domain;
+my $admin;
+my $tech;
+my $value;
+
+############################# this section reads file called domains.txt located in the same path as that of script file line by line and sends to an array called lines###########
+
+
+
+open FILE1, "mailist.txt" or die;
+
+
+
+
+
+
+
+while (my $line=<FILE1>) {
+   chomp($line);
+   ($domain, $admin, $tech) = split /:/, $line;
+
+  print "  $domain has a  $admin\n";
+  
+
+
+
+my $cmd1="\(
+
+$E \"From: mchinwal\@cra.gov.qa\";
+$E \"To: $admin\";
+$E \"Subject: Qatar Domains Registry Registrars admin Contact updation notification\";
+$E \"Content-Type: text/html\";
+$E \"MIME-Version: 1.0\";
+$E \"\";
+
+$E Dear Registrar,
+
+$E Kindly Confirm $domain contacts details;
+
+$E Regards
+$E QDR
+\) \| sendmail -t";
+
+#system($cmd1);
+
+}
+
+
+while (my $line=<FILE1>) {
+   chomp($line);
+   ($domain, $admin,  $tech) = split /:/, $line;
+   print $admin;
+   print $tech
+
+
+
+  print "  $domain has a  $tech\n";
+
+
+my $cmd2="\(
+
+$E \"From: mchinwal\@cra.gov.qa\";
+$E \"To: $tech\";
+$E \"Subject: Qatar Domains Registry Registrars tech Contact updation notification\";
+$E \"Content-Type: text/html\";
+$E \"MIME-Version: 1.0\";
+$E \"\";
+
+$E Dear Registrar,
+
+$E Kindly Confirm $domain contacts details;
+
+$E Regards
+$E QDR
+\) \| sendmail -t";
+
+#system($cmd2);
+
+}
+
+exit;

@@ -1,0 +1,103 @@
+use strict;
+use warnings;
+use XML::Twig;
+
+use XML::Simple;
+#my $config = XMLin(b.xml);
+use Data::Dumper;
+#print Dumper($config);
+ 
+
+my $xmlStr = <<XML;
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+<command>
+<info>
+<contact:info xmlns:contact="urn:ietf:params:xml:ns:contact-1.0">
+<contact:id>QDR123</contact:id>
+</contact:info>
+</info>
+<clTRID>qadr_epp</clTRID>
+</command>
+</epp>
+XML
+
+
+#refersh the domaininfo file with domaininfo response templates the domaininfo response are processs the bulk_contacts_extarct1.pl script
+
+my $cmd5="/bin/perl /root/eppclient_ote_clinet/replay_tool/bulk_contacts_extarct1.pl > /root/eppclient_ote_clinet/replay_tool/dc3000.xml";
+`$cmd5`;
+
+
+#prepare the contactinfo file with contactinfo response tempaltes
+my $cmd4 = "/bin/perl /root/eppclient_ote_clinet/replay_tool/bulk_contacts_extarct2.pl > /root/eppclient_ote_clinet/replay_tool/dc5000.xml";
+
+
+#process the contactinfo file for xml parsing
+
+my $cmd1= "/bin/bash /root/eppclient_ote_clinet/replay_tool/run.sh Replay < /root/eppclient_ote_clinet/replay_tool/dc4000.xml";
+my $cmd2= "/bin/grep -i addr";
+my $cmd3 = "/bin/sed \'s/<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>//g\'";
+
+
+
+#open the the domaininfo response file for contact id extraction
+my $filename = 'dc3000.xml';
+open(my $fh, '<:encoding(UTF-8)', $filename)
+  or die "Could not open file '$filename' $!";
+ 
+
+#loop through the domaininfo response file for contact id extraction
+
+while (my $row = <$fh>) {
+  chomp $row;
+  my $config = XMLin($row);
+  print Dumper($config);
+  
+  #print "\n\n";
+  
+  my $domainname=$config->{response}->{resData}->{"domain:infData"}->{"domain:name"};
+  print "\nDomainname: $domainname\n";
+
+  my $regname=$config->{response}->{resData}->{"domain:infData"}->{"domain:registrant"};
+  #print "\nDomainname: $regname\n";
+
+  #keep inserting the contact id into contact info EPP Query 
+  open(FH, '>', 'dc4000.xml') or die "cannot open file";
+  select FH;
+  my $twig= new XML::Twig(
+
+                           twig_handlers => { 'contact:id' => sub { $_->set_text($regname) }  },
+                         );
+  $twig->parse($xmlStr);
+  $twig->print();
+
+  close FH;
+
+  #finaly process the contact info response as per requirement
+  system("$cmd1 | $cmd2 | $cmd3");
+
+  #print "\n\n";
+  my $contype1=$config->{response}->{resData}->{"domain:infData"}->{"domain:contact"}->[0]->{type};
+  #print "\nDomainname: $contype1\n";
+  my $contval1=$config->{response}->{resData}->{"domain:infData"}->{"domain:contact"}->[0]->{content};
+  #print "\nDomainname: $contval1\n";
+
+  #print "\n\n";
+  my $contype2= $config->{response}->{resData}->{"domain:infData"}->{"domain:contact"}->[1]->{type};
+  #print "\nDomainname: $contype2\n";
+  my $contval2=$config->{response}->{resData}->{"domain:infData"}->{"domain:contact"}->[1]->{content};
+  #print "\nDomainname: $contval2\n";
+  #print "\n\n";
+  my $contype3=$config->{response}->{resData}->{"domain:infData"}->{"domain:contact"}->[2]->{type};
+  #print "\nDomainname: $contype3\n";
+  my $contval3=$config->{response}->{resData}->{"domain:infData"}->{"domain:contact"}->[2]->{content};
+  #print "\nDomainname: $contval3\n";
+  #print "\n\n";
+
+
+
+
+
+}
+
+`$cmd4`;

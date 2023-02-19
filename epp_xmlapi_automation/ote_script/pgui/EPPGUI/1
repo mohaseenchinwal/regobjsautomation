@@ -1,0 +1,86 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use Net::SSH::Expect;
+#
+
+
+use Tk;
+use Tk::Dialog;
+use Tk::ProgressBarPlus;
+
+
+my $percent_done=0;
+my $position;
+my @host_array5 = ("reg.qadr.qa", "10.206.10.6", "10.206.10.3", "10.206.10.4", "10.206.10.5", "10.206.10.8", "syslog1.qadr.qa");
+
+
+my $main = MainWindow->new();
+$main -> geometry ("1000x800");
+$main -> Label(-background =>'black');
+#$main->geometry("800x500");
+$main->title("QDR EPP WEB CLIENT");
+my $image = $main->Photo(-file => "QDRlogo.gif");
+
+
+
+
+
+
+my $labelimg = $main->Label(-image=>$image);
+$labelimg->pack(-side=>"top");
+
+my $footer = $main->Label(-text=>"QDR EPP WEB CLIENT copy write owned by Mohaseen Khan 2017-18",-background => '#FFFFFF' );
+$footer->pack(-side=>"bottom");
+
+
+
+
+
+
+$main->Button(
+        -text => 'Clinet Setup',
+        -command => \&Open_CS
+             )->pack(-side=>"top");
+$main->Button(
+        -text => 'save Command',
+        -command => sub{reset_pass()}
+             )->pack(-side=>"top");
+
+$main->Button(
+        -text => 'Save Response',
+        -command => sub{reset_pass()}
+             )->pack(-side=>"top");
+
+$main->Button(
+        -text => 'Save Logs',
+        -command => sub{reset_pass()}
+             )->pack(-side=>"top");
+
+
+$main->bind('<Control-o>', [\&open_file]);
+my $types = [ ['Perl files', '.pl'],
+              ['All Files',   '*'],];
+
+
+MainLoop();
+
+
+
+
+sub open_file {
+  my $open = $main->getOpenFile(-filetypes => $types,
+                              -defaultextension => '.pl');
+  print qq{You chose to open "$open"\n};
+ # `/bin/cat $open`; 
+  system("gedit $open");
+}
+
+sub Open_CS {
+
+ my $Conf_file="/home/mohsin2/pgui/EPPGUI/replaytest/replay_tool/etc/toolkit-Replay.properties"
+
+ system("/usr/bin/gedit $Conf_file");
+
+}
+

@@ -1,0 +1,5 @@
+moi.gov.qa
+cra.gov.qa
+goc.gov.qa
+motc.gov.qa
+

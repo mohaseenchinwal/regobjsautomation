@@ -1,0 +1,43 @@
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0 epp-1.0.xsd">
+    <response>
+        <result code="1000">
+            <msg lang="en">Command completed successfully</msg>
+        </result>
+        <resData>
+            <domain:infData xmlns:domain="urn:ietf:params:xml:ns:domain-1.0" xsi:schemaLocation="urn:ietf:params:xml:ns:domain-1.0 domain-1.0.xsd">
+                <domain:name>obzschool.sch.qa</domain:name>
+                <domain:roid>D17B11CD8ABC65F6285A06B34327042CC-QDR</domain:roid>
+                <domain:status s="ok" />
+                <domain:registrant>OOR00304</domain:registrant>
+                <domain:contact type="admin">OOR00304</domain:contact>
+                <domain:contact type="billing">OOR00304</domain:contact>
+                <domain:contact type="tech">OOR00304</domain:contact>
+                <domain:ns>
+                    <domain:hostObj>ns1.bluehost.com</domain:hostObj>
+                    <domain:hostObj>ns2.bluehost.com</domain:hostObj>
+                </domain:ns>
+                <domain:clID>QDR</domain:clID>
+                <domain:crID>QDR</domain:crID>
+                <domain:crDate>2017-07-24T12:55:01.0Z</domain:crDate>
+                <domain:upID>QDR</domain:upID>
+                <domain:upDate>2019-04-14T14:44:52.0Z</domain:upDate>
+                <domain:exDate>2023-07-24T12:55:01.0Z</domain:exDate>
+                <domain:authInfo>
+                    <domain:pw>qdr.123</domain:pw>
+                </domain:authInfo>
+            </domain:infData>
+        </resData>
+        <extension>
+            <infData xmlns="urn:X-ar:params:xml:ns:kv-1.0">
+                <kvlist name="qa">
+                    <item key="eligibilityType">School</item>
+                    <item key="registrantName">NEW</item>
+                </kvlist>
+            </infData>
+        </extension>
+        <trID>
+            <clTRID>qadr_epp</clTRID>
+            <svTRID>12713825</svTRID>
+        </trID>
+    </response>
+</epp>

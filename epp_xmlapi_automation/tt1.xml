@@ -1,0 +1,48 @@
+<epp
+	xmlns="urn:ietf:params:xml:ns:epp-1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0 epp-1.0.xsd">
+	<response>
+		<result code="1000">
+			<msg lang="en">Command completed successfully</msg>
+		</result>
+		<resData>
+			<domain:infData
+				xmlns:domain="urn:ietf:params:xml:ns:domain-1.0" xsi:schemaLocation="urn:ietf:params:xml:ns:domain-1.0 domain-1.0.xsd">
+				<domain:name>hamadbinkhalifauniversity.edu.qa</domain:name>
+				<domain:roid>D9058CA6AF6A73FB662A37DDD1F44E4EF-QDR</domain:roid>
+				<domain:status s="ok"/>
+				<domain:registrant>QDR000102</domain:registrant>
+				<domain:contact type="tech">QT8793
+				</domain:contact>
+				<domain:contact type="admin">QDR000102</domain:contact>
+				<domain:contact type="tech">QDR000102</domain:contact>
+				<domain:ns>
+					<domain:hostObj>ns13.zoneedit.com</domain:hostObj>
+					<domain:hostObj>ns10.zoneedit.com</domain:hostObj>
+				</domain:ns>
+				<domain:clID>QDR</domain:clID>
+				<domain:crID>Registry</domain:crID>
+				<domain:crDate>2011-08-19T00:00:00.0Z</domain:crDate>
+				<domain:upID>Registry</domain:upID>
+				<domain:upDate>2019-09-11T09:45:37.0Z</domain:upDate>
+				<domain:exDate>2024-08-21T00:00:00.0Z</domain:exDate>
+				<domain:authInfo>
+					<domain:pw>!kG!e@49L</domain:pw>
+				</domain:authInfo>
+			</domain:infData>
+		</resData>
+		<extension>
+			<infData
+				xmlns="urn:X-ar:params:xml:ns:kv-1.0">
+				<kvlist name="qa">
+					<item key="eligibilityType">Education Institution</item>
+					<item key="registrantName">Qatar Foundation</item>
+				</kvlist>
+			</infData>
+		</extension>
+		<trID>
+			<clTRID>qadr_epp</clTRID>
+				<svTRID>61843176</svTRID>
+			</trID>
+		</response>
+	</epp>

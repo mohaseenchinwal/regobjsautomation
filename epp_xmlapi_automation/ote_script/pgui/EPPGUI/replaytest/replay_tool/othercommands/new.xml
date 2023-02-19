@@ -1,0 +1,29 @@
+ C:<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+   C:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+   C: <command>
+   C:   <create>
+   C:     <domain:create
+   C:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
+   C:     <domain:name>xn--mgbbbbacbf2n3a.xn--wgbl6a</domain:name>
+   C:     <domain:period unit="y">1</domain:period>
+   C:     <domain:ns>
+   C:       <domain:hostObj>ns1.registry.qa</domain:hostObj>
+   C:       <domain:hostObj>ns2.registry.qa</domain:hostObj>
+   C:     </domain:ns>
+   C:     <domain:registrant>jd1234</domain:registrant>
+   C:     <domain:contact type="admin">QDR123</domain:contact>
+   C:     <domain:contact type="tech">QDR123</domain:contact>
+   C:     <domain:authInfo>
+   C:       <domain:pw>as12AS!@</domain:pw>
+   C:     </domain:authInfo>
+   C:     </domain:create>
+   C:   </create>
+   C:   <extension>
+   C:   <idn:data xmlns:idn="urn:ietf:params:xml:ns:idn-1.0">
+   C:     <idn:table>es</idn:table>
+   C:     <idn:uname>ةؿؼةباتةبة.قطر</idn:uname>
+   C:   </idn:data>
+   C:   </extension>
+   C:   <clTRID>123456</clTRID>
+   C: </command>
+   C:</epp>

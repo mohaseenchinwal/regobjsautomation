@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"xsi:schemaLocation="urn:ietf:params:xml:ns:epp-1.0 epp-1.0.xsd">
+       <command>
+              <create>
+                     <domain:create xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"xsi:schemaLocation="urn:ietf:params:xml:ns:domain-1.0 domain-1.0.xsd">
+                           <domain:name>xn--wgbl3aeeee3b.xn--wgbl6a</domain:name>
+                           <domain:period unit="y">1</domain:period>
+                           <domain:ns>
+                                  <domain:hostObj>ns1.instradns.com</domain:hostObj>
+                                  <domain:hostObj>ns2.instradns.com</domain:hostObj>
+                                  <domain:hostObj>ns3.instradns.com</domain:hostObj>
+                           </domain:ns>
+                           <domain:registrant>IN1485840442746</domain:registrant>
+                           <domain:contact type="tech">IN1485840443168</domain:contact>
+                           <domain:contact type="admin">IN1485840443527</domain:contact>
+                           <domain:contact type="billing">IN1485840443902</domain:contact>
+                           <domain:authInfo>
+                                  <domain:pw>wkodZ7bf</domain:pw>
+                           </domain:authInfo>
+                     </domain:create>
+              </create>
+              <extension>
+                     <create xmlns="urn:X-ar:params:xml:ns:idnadomain-1.0">
+                           <userForm language="ar-QA">فيقطر.قطر</userForm>
+                     </create>
+                     <create xmlns="urn:X-ar:params:xml:ns:kv-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"xsi:schemaLocation="urn:X-ar:params:xml:ns:kv-1.0 kv-1.0.xsd">
+                           <kvlist name="qa">
+                                  <item key="eligibilityType">passport</item>
+                                  <item key="registrantName">Abu Bakar Siddik</item>
+                           </kvlist>
+                     </create>
+              </extension>
+              <clTRID>INSTRA:instra_epp:1485840444324</clTRID>
+       </command>
+</epp>
+

@@ -1,0 +1,38 @@
+
+use strict;
+use Tk;
+use Tk::ROText;
+
+my $mw = tkinit;
+
+# The monocolored Label variant
+my $l = $mw->Label
+    (
+     -text => "First Name\nMYO",
+     -font => "{sans serif} 12",
+    )->pack;
+
+# The multicolored ROText variant
+my $txt = $mw->ROText
+    (
+     -borderwidth => 0, -highlightthickness => 0, # remove extra borders
+     -takefocus => 0, # make widget unfocusable
+     -font => "{sans serif} 12",
+    )->pack;
+$txt->tagConfigure
+    (
+     'blue',
+     -foreground => "blue",
+     -justify => 'center', # to get same behavior as with Tk::Label
+    );
+$txt->tagConfigure
+    (
+     'red',
+     -foreground => "red",
+     -justify => 'center', # to get same behavior as with Tk::Label
+    );
+$txt->insert("end", "First Name\n", "blue", "MYO", "red");
+# a hack to make the ROText geometry the same as the Label geometry
+$txt->GeometryRequest($l->reqwidth, $l->reqheight);
+
+MainLoop

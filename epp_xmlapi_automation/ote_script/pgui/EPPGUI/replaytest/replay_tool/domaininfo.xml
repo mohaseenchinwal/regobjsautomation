@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><epp xmlns="urn:ietf:params:xml:ns:epp-1.0"><command><info><domain:infoxmlns:domain="urn:ietf:params:xml:ns:domain-1.0"><domain:name hosts="all">testqdrtest.qa</domain:name><domain:authInfo><domain:pw></domain:pw></domain:authInfo></domain:info></info><clTRID>qdr_epp-12345<clTRID></command></epp>

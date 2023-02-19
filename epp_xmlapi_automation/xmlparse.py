@@ -1,0 +1,10 @@
+import xml.etree.ElementTree as ET
+mytree = ET.parse('sample.xml')
+myroot = mytree.getroot()
+print(myroot)
+print(myroot.tag)
+print(myroot[0].tag)
+print(myroot[0][0][1][0][11].tag)
+print(myroot[0][0][1][0][11].text)
+print(myroot[0][1][1][0][11].tag)
+print(myroot[0][1][1][0][11].text)

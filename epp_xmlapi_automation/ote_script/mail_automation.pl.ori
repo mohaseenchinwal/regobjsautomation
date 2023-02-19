@@ -1,0 +1,58 @@
+use strict;
+use warnings;
+
+my $E="/bin/echo";
+my %hash = ();
+
+############################# this section reads file called domains.txt located in the same path as that of script file line by line and sends to an array called lines###########
+
+
+open (my $handle, '<', 'mailist.txt') or die $!;
+chomp(my @lines = <$handle>);
+print @lines;
+
+
+
+
+##################################This section is used to open loop to read  the domains from the array lines
+
+
+
+for(my $i=0;$i<=$#lines;$i++){
+
+
+my($key, $admin, $tech, $billing) = split("\t", $lines[$i]);
+$hash{$key} = 1;
+
+
+
+
+#my $cmd1="\(
+#$E \"From: mchinwal\@cra.gov.qa\";
+#$E \"To: tech\@domains.qa\";
+#$E \"Subject: Qatar Domains Registry Registrars Contact updation notification\";
+#$E \"Content-Type: text/html\";
+#$E \"MIME-Version: 1.0\";
+#$E \"\";
+
+#$E Dear Registrar,
+
+#$E Kindly Confirm $lines[$i] contacts details;
+
+#$E Regards
+#$E QDR
+#3\) \| sendmail -t";
+
+#system($cmd1);
+
+}
+
+##Finally domains.txt file is closed 
+
+foreach my $key (sort keys %hash)
+{
+    print "$key\n";
+}
+
+close $handle;
+exit;

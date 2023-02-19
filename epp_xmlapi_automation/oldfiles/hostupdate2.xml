@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><epp xmlns="urn:ietf:params:xml:ns:epp-1.0"><command><update><host:update xmlns:host="urn:ietf:params:xml:ns:host-1.0"><host:name>ns1.qm.org.qa</host:name><host:add><host:addr ip="v4">78.100.128.74</host:addr></host:add><host:rem><host:addr ip="v4">213.130.111.203</host:addr></host:rem></host:update></update></command></epp>

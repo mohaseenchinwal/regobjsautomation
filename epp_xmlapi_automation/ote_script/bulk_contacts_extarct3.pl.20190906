@@ -1,0 +1,138 @@
+use strict;
+use warnings;
+use XML::Twig;
+use DBI;
+use DBD::mysql;
+
+
+use XML::Simple;
+use Data::Dumper;
+
+
+my $domainname;
+my $admincontactmail;
+my $billingcontactmail;
+my $techcontactmail;
+
+#refersh the contactinfo file with contactinfo response templates the contactinfo response are processed by the bulk_contacts_extarct2.pl script
+my $cmd1 = "/bin/perl /root/eppclient_ote_clinet/replay_tool/bulk_contacts_extarct2.pl";
+`$cmd1`;
+
+
+
+
+
+# dump the extracted date from the epp query from domoininfo xml response into mysql table contactid
+
+my $dbh = DBI->connect("DBI:mysql:northwind", "root", "123")or die "Unable to connect: $DBI::errstr\n";
+my $q2 = q{DELETE FROM contactemails;};
+my $sth = $dbh->prepare($q2)  or die "Prepare failed: " . $dbh->errstr();
+$sth->execute();
+
+
+my $q5 = q{DELETE FROM contactemails_pri;};
+my $sth = $dbh->prepare($q5)  or die "Prepare failed: " . $dbh->errstr();
+$sth->execute();
+
+my $q6 = q{DELETE FROM contactemails_admin;};
+my $sth = $dbh->prepare($q6)  or die "Prepare failed: " . $dbh->errstr();
+$sth->execute();
+
+my $q7 = q{DELETE FROM contactemails_billing;};
+my $sth = $dbh->prepare($q7)  or die "Prepare failed: " . $dbh->errstr();
+$sth->execute();
+
+my $q8 = q{DELETE FROM contactemails_tech;};
+my $sth = $dbh->prepare($q8)  or die "Prepare failed: " . $dbh->errstr();
+$sth->execute();
+
+#########1
+my $q3 = q{INSERT INTO `contactemails_pri`(Registrant_pri_email) VALUES (?);};
+$sth = $dbh->prepare($q3)  or die "Prepare failed: " . $dbh->errstr();
+open (my $handle, '<', 'dc5000.xml') or die $!;
+chomp(my @lines = <$handle>);
+for(my $i=0;$i<=$#lines;$i++){
+
+
+chomp $lines[$i];
+
+
+my $config = XMLin($lines[$i]);
+
+my $regemail=$config->{response}->{resData}->{"contact:infData"}->{"contact:email"};
+print "\nRegistrant Email: $regemail\n";
+
+if($sth->execute($regemail)) {}
+
+
+}
+close $handle;
+
+
+#########2
+my $q4 = q{INSERT INTO `contactemails_admin`(Registrant_adminemail) VALUES (?);};
+$sth = $dbh->prepare($q4)  or die "Prepare failed: " . $dbh->errstr();
+open ($handle, '<', 'dc5001.xml') or die $!;
+chomp(@lines = <$handle>);
+for(my $i=0;$i<=$#lines;$i++){
+
+
+chomp $lines[$i];
+
+
+my $config = XMLin($lines[$i]);
+
+my $adminemail=$config->{response}->{resData}->{"contact:infData"}->{"contact:email"};
+print "\nRegistrant Email: $adminemail\n";
+
+if($sth->execute($adminemail)) {}
+
+
+}
+close $handle;
+
+
+##########3
+my $q9 = q{INSERT INTO `contactemails_billing`(Registrant_billingemail) VALUES (?);};
+$sth = $dbh->prepare($q9)  or die "Prepare failed: " . $dbh->errstr();
+open ($handle, '<', 'dc5002.xml') or die $!;
+chomp(@lines = <$handle>);
+for(my $i=0;$i<=$#lines;$i++){
+
+
+chomp $lines[$i];
+
+
+my $config = XMLin($lines[$i]);
+
+my $billingemail=$config->{response}->{resData}->{"contact:infData"}->{"contact:email"};
+print "\nRegistrant Email: $billingemail\n";
+
+if($sth->execute($billingemail)) {}
+
+
+}
+close $handle;
+
+
+##########4
+my $q10 = q{INSERT INTO `contactemails_tech`(Registrant_techemail) VALUES (?);};
+$sth = $dbh->prepare($q10)  or die "Prepare failed: " . $dbh->errstr();
+open ($handle, '<', 'dc5003.xml') or die $!;
+chomp(@lines = <$handle>);
+for(my $i=0;$i<=$#lines;$i++){
+
+
+chomp $lines[$i];
+
+
+my $config = XMLin($lines[$i]);
+
+my $techemail=$config->{response}->{resData}->{"contact:infData"}->{"contact:email"};
+print "\nRegistrant Email: $techemail\n";
+
+if($sth->execute($techemail)) {}
+
+
+}
+close $handle;
